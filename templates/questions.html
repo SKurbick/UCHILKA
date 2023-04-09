@@ -1,0 +1,12 @@
+{% load rest_framework %}
+
+<html><body>
+
+<h1>Questions - {{ questions.question }}</h1>
+
+<form action="" method="POST">
+    {% render_form serializer %}
+    <input type="submit" value="Save">
+</form>
+
+</body></html>
