@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+
+</head>
+<body>
+<form method="POST">
+    {% csrf_token %}
+    <p>
+        <label>Введите login (username)</label><br>
+        <input type="text" name="username"/>
+    </p>
+    <p>
+        <label>пароль</label><br>
+        <input type="text" name="password"/>
+    </p>
+    <p>
+        <label>Введите emal</label><br>
+        <input type="text" name="email"/>
+    </p>
+
+    <input type="submit" value="Сохранить">
+</form>
+</body>
+</html>
