@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.shortcuts import get_object_or_404
 from .models import Question, User
@@ -42,3 +43,16 @@ class UserView(APIView):
             return Response({'serializer': serializer, 'profile': user})
         serializer.save()
         return redirect('/')
+
+
+from django.contrib.auth.models import User
+
+
+def register_user(request):
+    if request.method == "POST":
+        user = User.objects.create_user(
+            username=request.POST.get('username'),
+            email=request.POST.get('email'),
+            password=request.POST.get('password')
+        )
+    return render(request, 'user_register.html')
